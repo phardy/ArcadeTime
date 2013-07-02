@@ -9,8 +9,8 @@ Arcade Time Watched, based on the Big Time watch by Pebble
 
 #include "resource_ids.auto.h"
 
-#define MY_UUID {0x8a, 0xe5, 0x5c, 0xa0, 0xe4, 0x8e, 0x70, 0xe6, 0xbb, 0xca, 0x16, 0xec, 0xda, 0xc6, 0xfd, 0xfc}
-PBL_APP_INFO(MY_UUID, "ArcadeTime", "Ice2097", 0x5, 0x0, RESOURCE_ID_IMAGE_MENU_ICON, APP_INFO_WATCH_FACE);
+#define MY_UUID {0xb0, 0xe3, 0x52, 0xe1, 0x02, 0x46, 0x4c, 0xc8, 0xa3, 0xdf, 0xb0, 0xb2, 0x1b, 0x19, 0x98, 0x38}
+PBL_APP_INFO(MY_UUID, "ArcadeTimeInverted", "Ice2097", 0x5, 0x0, RESOURCE_ID_IMAGE_MENU_ICON, APP_INFO_WATCH_FACE);
 
 Window window;
 TextLayer text_date_layer;
@@ -172,13 +172,13 @@ void handle_init(AppContextRef ctx) {
 
   window_init(&window, "ArcadeTime watch");
   window_stack_push(&window, true);
-  window_set_background_color(&window, GColorWhite);
+  window_set_background_color(&window, GColorBlack);
 
   resource_init_current_app(&APP_RESOURCES);
 
   text_layer_init(&text_date_layer, window.layer.frame);
-  text_layer_set_text_color(&text_date_layer, GColorBlack);
-  text_layer_set_background_color(&text_date_layer, GColorClear);
+  text_layer_set_text_color(&text_date_layer, GColorWhite);
+  text_layer_set_background_color(&text_date_layer, GColorBlack);
   layer_set_frame(&text_date_layer.layer, GRect(0, 149, 144, 25));
   text_layer_set_font(&text_date_layer, fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_ARC_16)));
   text_layer_set_text_alignment(&text_date_layer, GTextAlignmentCenter);
